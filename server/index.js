@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import testRouter from "./routes/testRouter.js";
 import restaurantsModel from "./models/restaurantsModel.js";
 import restaurantsRouter from "./routes/restaurantsRouter.js";
+import shopsRouter from "./routes/shopsRouter.js";
 
 
 const app = express();
@@ -35,6 +36,7 @@ const connectMongoDB = async () => {
 const loadRoutes = () => {
   app.use("/test", testRouter);
   app.use("/api/restaurants", restaurantsRouter);
+  app.use("/api/shops", shopsRouter);
 };
 
 
