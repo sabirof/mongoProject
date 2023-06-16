@@ -12,7 +12,7 @@ try {
     })
     } catch (error) {
        console.log("error", error); 
-    res.status(500).json({
+    res.status(501).json({
         msg:"something went wring getting all shops",
     });
 }
