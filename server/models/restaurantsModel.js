@@ -16,7 +16,10 @@ likes: {
     type:Number,
     required: false,
     unique:false,
-}
+},
+shops: [
+    {type:mongoose.Schema.Types.ObjectId, ref:"shop"}
+],
 
   
 });

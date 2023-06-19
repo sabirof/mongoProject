@@ -2,7 +2,7 @@ import restaurantsModel from "../models/restaurantsModel.js";
 
 const getAllRestaurants = async (request, response) => {
   // console.log("this is a getAll request");
-  const allRestaurants = await restaurantsModel.find({});
+  const allRestaurants = await restaurantsModel.find({}).populate({path:"shops", select:["name", "likes"]});
   console.log("allRestaurants", allRestaurants);
   response.status(200).json({
     allRestaurants,
