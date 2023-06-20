@@ -8,6 +8,7 @@ import restaurantsRouter from "./routes/restaurantsRouter.js";
 import shopsRouter from "./routes/shopsRouter.js";
 import userRouter from "./routes/usersRouter.js"
 import multerUpload from "./middleware/multer.js";
+import cloudinaryConfig from "./config/cloudinary.js";
 
 
 const app = express();
@@ -21,6 +22,7 @@ const addMiddlewares = () => {
     })
   );
   app.use(cors());
+  cloudinaryConfig();
 
  
 };
@@ -41,7 +43,7 @@ const loadRoutes = () => {
   app.use("/test", testRouter);
   app.use("/api/restaurants", restaurantsRouter);
   app.use("/api/shops", shopsRouter);
-  app.use("api/users", userRouter);
+  app.use("/api/users", userRouter);
 };
 
 
