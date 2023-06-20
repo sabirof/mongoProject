@@ -6,6 +6,8 @@ import testRouter from "./routes/testRouter.js";
 import restaurantsModel from "./models/restaurantsModel.js";
 import restaurantsRouter from "./routes/restaurantsRouter.js";
 import shopsRouter from "./routes/shopsRouter.js";
+import userRouter from "./routes/usersRouter.js"
+import multerUpload from "./middleware/multer.js";
 
 
 const app = express();
@@ -19,10 +21,12 @@ const addMiddlewares = () => {
     })
   );
   app.use(cors());
+
+ 
 };
 
 const startServer = () => {
-  const port = process.env.PORT || 5174;
+  const port = process.env.PORT || 5173;
   app.listen(port, () => {
     console.log("Server is running on port " + port);
   });
@@ -37,6 +41,7 @@ const loadRoutes = () => {
   app.use("/test", testRouter);
   app.use("/api/restaurants", restaurantsRouter);
   app.use("/api/shops", shopsRouter);
+  app.use("api/users", userRouter);
 };
 
 
