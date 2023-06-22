@@ -44,6 +44,7 @@ const loadRoutes = () => {
   app.use("/api/restaurants", restaurantsRouter);
   app.use("/api/shops", shopsRouter);
   app.use("/api/users", userRouter);
+  app.use()
 };
 
 
