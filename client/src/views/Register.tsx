@@ -54,6 +54,7 @@ const Register = (props: Props) => {
   };
 
   const register = async () => {
+    console.log('Register button clicked');
     try {
       const response = await fetch(
         "http://localhost:5173/api/users/register",
@@ -111,9 +112,10 @@ const Register = (props: Props) => {
             id="file"
             onChange={handleAttachFile}
           />
+          <button type="button" onClick={register}>Register</button>
           <button type="submit">Upload Picture</button>
         </form>
-        <button onClick={register}>Register</button>
+        
       </div>
       <div>User Info</div>
       {newUser.avatar && (
