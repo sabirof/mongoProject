@@ -1,17 +1,34 @@
-import bcrypt from "bcrypt"
+// import bcrypt from "bcrypt"
 
-const hashedPassword = async (userPassword) => {
-    const saltRounds = 10;
-    try {
-        const salt = await bcrypt.genSalt(saltRounds)
-     const hash = bcrypt.hash(userPassword, salt);
-    } catch (error) {
-        console.log("error hasing password", error);
-    }
+// const hashedPassword = async (userPassword) => {
+//     const saltRounds = 10;
+//     try {
+//         const salt = await bcrypt.genSalt(saltRounds)
+//      const hash = bcrypt.hash(userPassword, salt);
+//     } catch (error) {
+//         console.log("error hasing password", error);
+//     }
     
 
-     return hash
-} 
+//      return hash
+// } 
 
 
-export {hashedPassword};
+// export {hashedPassword};
+
+import bcrypt from "bcrypt";
+
+const hashedPassword = async (userPassword) => {
+  const saltRounds = 10;
+
+  try {
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hash = await bcrypt.hash(userPassword, salt);
+    return hash;
+  } catch (error) {
+    console.log("Error hashing password:", error);
+    throw error; // Rethrow the error to the caller
+  }
+};
+
+export { hashedPassword };

@@ -26,7 +26,7 @@ const imageUpload = async (req, res) => {
   }
 };
 const register = async (req, res) => {
-  console.log("req", req);
+//   console.log("req", req);
   //Check if the user is in our database
 
   try {
@@ -35,7 +35,9 @@ const register = async (req, res) => {
     if (!existingUser) {
       //if the user does not exist in our database, we store it
       try {
+        console.log("second")
         const encryptedPassword = await hashedPassword(req.body.password);
+console.log("first", encryptedPassword)
         if (encryptedPassword) {
           const newUser = new userModel({
             userName: req.body.userName,
@@ -43,6 +45,7 @@ const register = async (req, res) => {
             password: encryptedPassword,
             avatar: req.body.avatar,
           });
+
           const savedUser = await newUser.save();
 
           console.log("savedUser", savedUser);
