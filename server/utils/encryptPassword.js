@@ -1,21 +1,3 @@
-// import bcrypt from "bcrypt"
-
-// const hashedPassword = async (userPassword) => {
-//     const saltRounds = 10;
-//     try {
-//         const salt = await bcrypt.genSalt(saltRounds)
-//      const hash = bcrypt.hash(userPassword, salt);
-//     } catch (error) {
-//         console.log("error hasing password", error);
-//     }
-    
-
-//      return hash
-// } 
-
-
-// export {hashedPassword};
-
 import bcrypt from "bcrypt";
 
 const hashedPassword = async (userPassword) => {
@@ -31,4 +13,9 @@ const hashedPassword = async (userPassword) => {
   }
 };
 
-export { hashedPassword };
+const verifyPassword = async (loginPassword, storedPassword) => {
+  const verifiedToken =  await bcrypt.compareSync(loginPassword, storedPassword);
+  return verifiedToken; //output : true if both passwords match, if not False
+};
+
+export { verifyPassword, hashedPassword };
