@@ -3,6 +3,7 @@ import userModel from "../models/usersModel.js";
 import { hashedPassword, verifyPassword } from "../utils/encryptPassword.js";
 import { triggerAsyncId } from "async_hooks";
 import { issueToken } from "../utils/jwtToken.js";
+// import { issueToken } from "../utils/jwtToken.js";
 
 const imageUpload = async (req, res) => {
   console.log("req.file", req.file);

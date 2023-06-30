@@ -3,6 +3,7 @@ import React from 'react';
 
 import './App.css';
 import Register from './views/Register';
+import Login from './views/Login'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,7 +25,10 @@ function App() {
   return (
     <div>
      <h1>Görüschäck</h1>
+     <hr />
      <Register/>
+     <hr />
+     <Login/>
     </div>
   );
 }
