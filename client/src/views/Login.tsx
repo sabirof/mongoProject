@@ -1,17 +1,16 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 // import { URLSearchParams } from "url";
 
 type Props = {};
-interface loginCredentials {
-  email: string;
-  password: string;
-}
+
 
 const Login = (props: Props) => {
   const [loginCredentials, setloginCredentials] = useState<loginCredentials>({
     email: "",
     password: "",
   });
+  //This should belong to the context
+  const [user, setUser] = useState<User>();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setloginCredentials({
@@ -45,6 +44,12 @@ console.log("response", response)
         
         if(response.ok) {
 const result = await response.json();
+const {token, user, msg} = result
+//store token
+if(token) {
+  localStorage.setItem("token", token);
+
+}
 
 console.log('result', result);
         }
@@ -54,10 +59,28 @@ console.log('result', result);
 
     console.log("loginCredentials", loginCredentials);
   };
+
+  const checkUserStatus = () => {
+    const token = localStorage.getItem("token")
+    if (token) {
+      console.log("%cuser is logged in", "color:green")
+    } else {
+      console.log("%cuser is logged out", "color:red")
+    }
+  };
+const logout = () => {
+  localStorage.removeItem("token");
+}
+
+
+  useEffect (() => {
+checkUserStatus();
+  }, [])
   return (
     <div>
       {" "}
       <h1>Login</h1>
+      <button style={{backgroundColor:"red"}} onClick={logout}>Logout</button>
       <div>
         <form onSubmit={submitLogin}>
           <input

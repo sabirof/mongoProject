@@ -2,16 +2,11 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 
 type Props = {};
 
-interface User {
-  userName: string;
-  email: string;
-  password: string;
-  avatar: string;
-}
+
 
 const Register = (props: Props) => {
   const [selectedFile, setSelectedFile] = useState<File | string>("");
-  const [newUser, setNewUser] = useState<User>({
+  const [newUser, setNewUser] = useState<RegisterCredentials>({
     userName: "",
     email: "",
     password: "",
