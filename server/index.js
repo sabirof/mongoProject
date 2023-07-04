@@ -9,7 +9,7 @@ import shopsRouter from "./routes/shopsRouter.js";
 import userRouter from "./routes/usersRouter.js"
 import multerUpload from "./middleware/multer.js";
 import cloudinaryConfig from "./config/cloudinary.js";
-import { register } from "./controller/usersController.js";
+import { login, register } from "./controller/usersController.js";
 
 
 const app = express();
@@ -45,7 +45,9 @@ const loadRoutes = () => {
   app.use("/api/restaurants", restaurantsRouter);
   app.use("/api/shops", shopsRouter);
   app.use("/api/users", userRouter);
-  app.use("/api/users/register", register)
+  app.use("/api/users/register", register);
+  // app.use("/api/users/login", login);
+
 };
 
 

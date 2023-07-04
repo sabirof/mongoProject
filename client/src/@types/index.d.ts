@@ -1,5 +1,10 @@
+ interface User {
+    userName: string;
+    email: string;
+    avatar: string;
+  }
 
-
+type Token = string;
   
   interface RegisterCredentials {
     userName: string;
@@ -7,19 +12,24 @@
     password: string;
     avatar: string;
   } 
-   interfaceFetchUploadResult{
-avatar: string
+   interface FetchFileUploadResult{
+   avatar: string
    }
 
    interface fetchRegisterResult {
-    
+
    }
   interface loginCredentials {
     email: string;
     password: string;
   }
-  interface User {
-    userName: string;
-    email: string;
-    avatar: string;
+  interface FetchLoginResult {
+    msg: string;
+    user:  User;
+    token: Token;
   }
+
+  interface FetchError {
+    error: string;
+  }
+  type ResponseError = string | null;

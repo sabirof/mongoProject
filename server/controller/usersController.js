@@ -75,53 +75,49 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-    console.log("login");
   const { email, password } = req.body;
 
   try {
     const existingUser = await userModel.findOne({ email: email });
-
     console.log("existingUser", existingUser);
-
     if (!existingUser) {
-      res.status(404)({
-        msg: "Sorry, no user registered with this email",
+      res.status(404).json({
+        error: "Sorry, no user registered with this email",
       });
     } else {
-      //if the user exists we verify the password
-
+      //If user exists -> verfiy password
       try {
         const checkedPassword = await verifyPassword(
           password,
           existingUser.password
         );
+
         if (!checkedPassword) {
           //password is incorrect
           res.status(401).json({
-            error: "Password is incorrect",
+            error: "Wrong password...try again",
           });
         } else {
-          // if credentials match, we generate the JWT token
-
-          console.log("all goooooood!!!!....");
+          // If credentials match, we generate the JWT token
+          console.log("all gooooood!!.....");
 
           const token = issueToken(existingUser._id);
-
-          if(token) {
+          console.log("token", token);
+          if (token) {
             res.status(200).json({
-                msg:"Login successful",
-                user: {
-                    userName: existingUser.userName,
-                    email: existingUser.email,
-                    avatar: existingUser.avatar,
-                },
-                token,
+              msg: "Login successful",
+              user: {
+                userName: existingUser.userName,
+                email: existingUser.email,
+                avatar: existingUser.avatar,
+              },
+              token,
             });
           } else {
-            console.log('problem generating token :>> ');
+            console.log("problem generating token");
             res.status(500).json({
-                msg:"something went wrong during login"
-            })
+              msg: "something went wrong during login",
+            });
           }
         }
       } catch (error) {}
