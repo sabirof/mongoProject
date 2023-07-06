@@ -4,7 +4,7 @@
     avatar: string;
   }
 
-type Token = string;
+type Token = string | null;
   
   interface RegisterCredentials {
     userName: string;
@@ -33,3 +33,7 @@ type Token = string;
     error: string;
   }
   type ResponseError = string | null;
+
+  interface FetchProfileResult {
+    user:User
+  }

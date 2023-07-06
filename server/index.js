@@ -2,14 +2,21 @@ import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
 import mongoose from "mongoose";
+import passport from "passport";
+
+import cloudinaryConfig from "./config/cloudinary.js";
+import passportStrategy from "./config/passportConfig.js";
+
 import testRouter from "./routes/testRouter.js";
 import restaurantsModel from "./models/restaurantsModel.js";
 import restaurantsRouter from "./routes/restaurantsRouter.js";
 import shopsRouter from "./routes/shopsRouter.js";
 import userRouter from "./routes/usersRouter.js"
 import multerUpload from "./middleware/multer.js";
-import cloudinaryConfig from "./config/cloudinary.js";
+
 import { login, register } from "./controller/usersController.js";
+
+
 
 
 const app = express();
@@ -24,6 +31,8 @@ const addMiddlewares = () => {
   );
   app.use(cors());
   cloudinaryConfig();
+  passportStrategy
+  (passport)
 
  
 };
