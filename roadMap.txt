@@ -1,0 +1,17 @@
+1- Create either a "posts" router and controller, and create there post routes to upload new posts , for new shops, new restaurant, and general topics
+2-OR do the same inside each of the exisiting routers.
+3-create an update and delete route per every post route you create.
+4-each of these routes should authenticated.
+5-IF every type of post is gonna have the same model , then create only a POSTS collection, otherwise , create different collections per each.
+
+
+// Client
+
+1-<Home with a fecth function to get all the posts ...
+2-Home , with filters to filter per type of post. 
+3-You might want to create an specific page/view per topci (shops, restaurante, general topics. In those, you build a fetch function that hits an endpoint that gives you only those topics. 
+
+4-when clicking on a post, you open it in a separeted url with its own id. That view will display the individual post. (maybe protect this route, only for logged users)
+5-ONLY If you are the creator of that post, you should see an edit and delete button. 
+
+6-build a profile view in which a user should be able to : see his details , upload/edit profile picture, and see a list of his posts ...and also a list of the favourite ones.

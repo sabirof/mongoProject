@@ -7,4 +7,5 @@ const router = express.Router();
 router.get("/all", getAllRestaurants);
 router.get("/:location", getRestaurantsByLocation);
 
+
 export default router; 
