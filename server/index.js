@@ -15,6 +15,11 @@ import userRouter from "./routes/usersRouter.js"
 import multerUpload from "./middleware/multer.js";
 
 import { login, register } from "./controller/usersController.js";
+import { createPost } from "./controller/postsController.js";
+// import { createPost } from "./controller/postsController.js";
+
+
+
 
 
 
@@ -55,7 +60,8 @@ const loadRoutes = () => {
   app.use("/api/shops", shopsRouter);
   app.use("/api/users", userRouter);
   app.use("/api/users/register", register);
-  // app.use("/api/users/login", login);
+  //
+   app.post("/api/posts/new", createPost );
 
 };
 
