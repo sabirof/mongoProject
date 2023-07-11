@@ -15,3 +15,26 @@
 5-ONLY If you are the creator of that post, you should see an edit and delete button. 
 
 6-build a profile view in which a user should be able to : see his details , upload/edit profile picture, and see a list of his posts ...and also a list of the favourite ones.
+
+
+// Create new post steps :
+
+-- Server :
+
+-Create a post route, that uses jwtAuth.
+-Create a createPost function in the posts controller.
+-That function should receive in the body (req.body) all the elements you want the post to contain (should match the model, create one if there isnt).
+-The process is similar to creating a user.
+-Create a new object using the model, and populate the fields with the information coming in req.body. If in the post needs to contain some User's information, get it from req.user (thanks to the token.)
+-Save the object in the collection (eg. newPost.save()).
+-If success , send ok response to the client.
+-Try in postman
+
+
+--Cient :
+-Build a form/inouts with the post's fields. 
+-Build a fetch function that makes a POST request to the server, and append all those fields to the body (as URLSEARCHPARAMS , or FormData, as you prefer.).
+-Append the token to the header.
+-If the response is ok (your server tells you the post its been saved), call the function that gets all the posts, to update the view.
+
+
