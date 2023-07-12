@@ -37,4 +37,8 @@
 -Append the token to the header.
 -If the response is ok (your server tells you the post its been saved), call the function that gets all the posts, to update the view.
 
+-ask about jwt token
+-complete post model (misisng the information)
+-fin the logic for deleting it
+-adjust the delete in server
 
