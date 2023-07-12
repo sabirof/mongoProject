@@ -12,6 +12,7 @@ import testRouter from "./routes/testRouter.js";
 import restaurantsRouter from "./routes/restaurantsRouter.js";
 import shopsRouter from "./routes/shopsRouter.js";
 import usersRouter from "./routes/usersRouter.js"
+import postsRouter from "./routes/postsRouter.js"
 
 
 
@@ -51,7 +52,7 @@ const loadRoutes = () => {
   app.use("/api/shops", shopsRouter);
   app.use("/api/users", usersRouter);
 //   app.post("/api/users",userRouter );
-  // app.post("/api/posts", postsRouter);
+  app.use("/api/posts", postsRouter);
 };
 
 (async function controller() {

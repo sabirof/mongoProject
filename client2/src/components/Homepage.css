@@ -1,0 +1,106 @@
+.homepage {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .new-post {
+    margin-top: 20px;
+  }
+  
+  .new-post form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .new-post label {
+    font-weight: bold;
+  }
+  
+  .new-post input[type="text"],
+  .new-post textarea {
+    padding: 5px;
+  }
+  
+  .new-post button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .main-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .post {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .username {
+    font-weight: bold;
+  }
+  
+  .post-content {
+    margin-top: 10px;
+  }
+  
+  .post-content p {
+    margin: 0;
+  }
+  
+  .post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .like-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .like-button {
+    background-color: #fff;
+    border: none;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .delete-button {
+    background-color: #fff;
+    border: none;
+    color: #f00;
+    cursor: pointer;
+  }
+  
